@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test'
 import { TaskModel } from './fixtures/task.model'
+import { deleteTaskByHelper, postTask } from './support/helpers'
+
 
 test('Deve poder cadastrar uma nova tarefa', async ({ page, request }) => {
 
@@ -8,7 +10,7 @@ test('Deve poder cadastrar uma nova tarefa', async ({ page, request }) => {
         is_done: false
     }
 
-    await request.delete('http://localhost:3333/helper/tasks/' + task.name)
+    await deleteTaskByHelper(request, task.name)
 
     await page.goto('http://localhost:3000')
 
@@ -27,10 +29,9 @@ test('Não deve permitir tarefa duplicada', async ({ page, request }) => {
         name: 'Comprar Ketchup',
         is_done: false
     }
-    await request.delete('http://localhost:3333/helper/tasks/' + task.name)
 
-    const newTask = await request.post('http://localhost:3333/tasks', { data: task })
-    expect(newTask.ok()).toBeTruthy()
+    await deleteTaskByHelper(request, task.name)
+    await postTask(request, task)
 
     await page.goto('http://localhost:3000')
 
