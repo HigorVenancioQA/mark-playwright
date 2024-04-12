@@ -54,3 +54,18 @@ test('Deve concluir uma tarefa', async ({ page, request }) => {
     await tasksPage.shouldBeDone(task.name)
 })  
 })
+
+test.describe('Exclusão', ()=> {
+    test('Deve excluir uma tarefa', async ({ page, request }) => {
+        const task = data.delete as TaskModel
+    
+        await deleteTaskByHelper(request, task.name)
+        await postTask(request, task)
+    
+        const tasksPage: TaskPage = new TaskPage(page)
+    
+        await tasksPage.go()
+        await tasksPage.remove(task.name)
+        await tasksPage.shouldNotExist(task.name)
+    })  
+    })
