@@ -4,7 +4,7 @@ import { deleteTaskByHelper, postTask } from './support/helpers'
 import { TaskPage } from './support/pages/tasks'
 import data from './fixtures/tasks.json'
 
-test.describe('cadastro', () => {
+test.describe('Cadastro', () => {
     test('Deve poder cadastrar uma nova tarefa', async ({ page, request }) => {
         const task = data.success as TaskModel
 
@@ -40,7 +40,7 @@ test.describe('cadastro', () => {
     })
 })
 
-test.describe('atualização', () => {
+test.describe('Atualização', () => {
     test('Deve concluir uma tarefa', async ({ page, request }) => {
         const task = data.update as TaskModel
 

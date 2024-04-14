@@ -11,7 +11,7 @@ export class TaskPage {
     }
 
     async go() {
-        await this.page.goto('http://localhost:3000')
+        await this.page.goto('/')
     }
 
     async create(task: TaskModel) {
