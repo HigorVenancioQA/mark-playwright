@@ -8,7 +8,7 @@
 
 ## API e Web
 
-Baixe os arquivos clicando [aqui](https://drive.google.com/file/d/1BtQW8rBV4AmesCwDQ_fEmJw7qJh_ctsS/view?usp=drive_link).
+O arquivo ZIP fornecido (playwright-mark.zip) contém os arquivos essenciais para o projeto mark. Este projeto consiste em uma aplicação que inclui tanto a parte da API quanto a parte da interface web.
 
 ## 🤖 Como executar
 
